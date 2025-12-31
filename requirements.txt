@@ -1,0 +1,8 @@
+Flask
+opencv-python-headless
+ultralytics
+pytesseract
+pyttsx3
+gunicorn
+numpy
+Werkzeug

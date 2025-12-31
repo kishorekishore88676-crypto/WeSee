@@ -1,0 +1,6 @@
+__pycache__/
+*.pt
+wesee.db
+captures/
+venv/
+.env
