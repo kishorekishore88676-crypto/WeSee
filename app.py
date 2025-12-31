@@ -57,7 +57,12 @@ init_db()
 logging.info("Loading YOLO model...")
 model = None
 try:
-    model_yolo = YOLO("yolov8l-world.pt")
+    # Use Large model locally (Windows), but Small model on Server (Linux) to save RAM
+    if os.name == 'nt':
+        model_yolo = YOLO("yolov8l-world.pt")
+    else:
+        model_yolo = YOLO("yolov8s-world.pt") # Fixes "Out of Memory" on Render
+
     # Define the specific custom objects you want to detect
     custom_classes = [
         "person", "watch", "phone", "laptop", "mouse", "keyboard", "monitor", "tv", "fan", "ceiling fan", 
